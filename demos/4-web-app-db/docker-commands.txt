@@ -1,0 +1,18 @@
+# build out the services
+docker-compose build
+
+# start the services
+docker-compose up
+docker-compose up -d
+
+#stop the services
+docker-compose down
+
+docker-compose down --rmi all
+(note this also removes the images)
+
+# check the status
+docker-compose ps
+
+# view log files
+docker-compose logs

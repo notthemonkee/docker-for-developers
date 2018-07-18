@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  sqlserver:
+
+    container_name: sac-interactive-sql
+    build:
+       context: .
+       dockerfile: .docker/sqlserver.dockerfile
+
+    ports:
+      - "1433:1433"
+
+    env_file:
+      - ./.docker/env/sqlserver.development.env
+
+  coldfusion:
+
+    container_name: sac-interactive-cf
+    build:
+      context: .
+      dockerfile: .docker/coldfusion.dockerfile
+
+    ports:
+      - "8080:8080"
+
+    env_file:
+      - ./.docker/env/cf.development.env
+
+    volumes:
+      - ./app:/app
